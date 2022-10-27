@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.SITEHOST_USER }}
           password: ${{ secrets.SITEHOST_PASSWORD }}
           port: 22
-          envs: CONTAINER_PATH
+          envs: container/application
           debug: true
           script: |
              ls;
