@@ -20,8 +20,7 @@ jobs:
           password: ${{ secrets.SITEHOST_PASSWORD }}
           port: 22
           script: |
-            echo "Test" 
-            which python
+            echo "Setup" 
   #          cd ${{ CONTAINER_PATH }}
   #          git pull
   #          yarn install
@@ -34,8 +33,10 @@ jobs:
           password: ${{ secrets.SITEHOST_PASSWORD }}
           port: 22
           script: |
-            echo "python"
-          shell: python3
+            sudo apt install python 
+            python3
+            print("hello")
+            exit()
             
             
       
