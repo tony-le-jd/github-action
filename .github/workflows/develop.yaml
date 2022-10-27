@@ -24,11 +24,11 @@ jobs:
           envs: CONTAINER_PATH
           debug: true
           script: |
-             ls
-             cd $CONTAINER_PATH
-             git pull
-             yarn install
-             yarn run build
+             ls;
+             cd $CONTAINER_PATH;
+             git pull;
+             yarn install;
+             yarn run build;
              
       - name: API Call
         uses: appleboy/ssh-action@master
