@@ -21,11 +21,11 @@ jobs:
           username: ${{ secrets.SITEHOST_USER }}
           password: ${{ secrets.SITEHOST_PASSWORD }}
           port: 22
-          envs: container/application
+          envs: $CONTAINER_PATH
           debug: true
           script: |
              ls;
-             cd $CONTAINER_PATH;
+             cd container/application;
              git pull;
              yarn install;
              yarn run build;
