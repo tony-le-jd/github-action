@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.SITEHOST_PASSWORD }}
           port: 22
           script: |
-            which python3
+            ls
             
             
       
