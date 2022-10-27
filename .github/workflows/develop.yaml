@@ -30,23 +30,15 @@ jobs:
              yarn install;
              yarn run build;
              
-      - name: API Call
-        uses: appleboy/ssh-action@master
+      - name: API call
         env: 
           SITEHOST_API_KEY: ${{ secrets.SITEHOST_API_KEY }}
           SITEHOST_CLIENT_ID: ${{ secrets.SITEHOST_CLIENT_ID }}
           SITEHOST_SERVER: ${{ secrets.SITEHOST_SERVER }}
           SITEHOST_NAME: ${{ secrets.SITEHOST_NAME }}
           SITEHOST_CONTAINERS: ${{ secrets.SITEHOST_CONTAINERS }}
-        with:
-          host: ${{ secrets.SITEHOST_HOST }}
-          username: ${{ secrets.SITEHOST_USER }}
-          password: ${{ secrets.SITEHOST_PASSWORD }}
-          envs: SITEHOST_API_KEY,SITEHOST_CLIENT_ID,SITEHOST_SERVER,SITEHOST_NAME,SITEHOST_CONTAINERS
-          port: 22
-          debug: true
-          script: |
-              curl --location --request POST "https://api.sitehost.nz/1.1/cloud/stack/restart.json" \
+        run: |
+           curl --location --request POST "https://api.sitehost.nz/1.1/cloud/stack/restart.json" \
               --header 'Content-Type: application/json' \
               --data-raw '{
                   "apikey": $SITEHOST_API_KEY,
@@ -55,6 +47,32 @@ jobs:
                   "name": $SITEHOST_NAME,
                   "container[]": $SITEHOST_CONTAINERS
               }'
+             
+#       - name: API Call
+#         uses: appleboy/ssh-action@master
+#         env: 
+#           SITEHOST_API_KEY: ${{ secrets.SITEHOST_API_KEY }}
+#           SITEHOST_CLIENT_ID: ${{ secrets.SITEHOST_CLIENT_ID }}
+#           SITEHOST_SERVER: ${{ secrets.SITEHOST_SERVER }}
+#           SITEHOST_NAME: ${{ secrets.SITEHOST_NAME }}
+#           SITEHOST_CONTAINERS: ${{ secrets.SITEHOST_CONTAINERS }}
+#         with:
+#           host: ${{ secrets.SITEHOST_HOST }}
+#           username: ${{ secrets.SITEHOST_USER }}
+#           password: ${{ secrets.SITEHOST_PASSWORD }}
+#           envs: SITEHOST_API_KEY,SITEHOST_CLIENT_ID,SITEHOST_SERVER,SITEHOST_NAME,SITEHOST_CONTAINERS
+#           port: 22
+#           debug: true
+#           script: |
+#               curl --location --request POST "https://api.sitehost.nz/1.1/cloud/stack/restart.json" \
+#               --header 'Content-Type: application/json' \
+#               --data-raw '{
+#                   "apikey": $SITEHOST_API_KEY,
+#                   "client_id": $SITEHOST_CLIENT_ID,
+#                   "server": $SITEHOST_SERVER,
+#                   "name": $SITEHOST_NAME,
+#                   "container[]": $SITEHOST_CONTAINERS
+#               }'
 
             
             
