@@ -1,6 +1,6 @@
 name: API call
 on:
-  push:
+  # push:
   # branches: [ "main" ]
   pull_request:
     branches: ["main"]
@@ -23,11 +23,11 @@ jobs:
           port: 22
           debug: true
           script: |
-            echo "Setup" 
-  #          cd $CONTAINER_PATH
-  #          git pull
-  #          yarn install
-  #          yarn run build
+             cd $CONTAINER_PATH
+             git pull
+             yarn install
+             yarn run build
+             
       - name: API Call
         uses: appleboy/ssh-action@master
         env: 
