@@ -32,11 +32,8 @@ jobs:
           username: ${{ secrets.SITEHOST_USER }}
           password: ${{ secrets.SITEHOST_PASSWORD }}
           port: 22
-          script: |
-            sudo apt install python 
-            python3
-            print("hello")
-            exit()
+          script: script.py
+ 
             
             
       
