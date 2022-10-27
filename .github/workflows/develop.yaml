@@ -24,6 +24,7 @@ jobs:
           envs: CONTAINER_PATH
           debug: true
           script: |
+             ls
              cd $CONTAINER_PATH
              git pull
              yarn install
