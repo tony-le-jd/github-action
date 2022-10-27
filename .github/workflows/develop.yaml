@@ -21,6 +21,7 @@ jobs:
           username: ${{ secrets.SITEHOST_USER }}
           password: ${{ secrets.SITEHOST_PASSWORD }}
           port: 22
+          envs: CONTAINER_PATH
           debug: true
           script: |
              cd $CONTAINER_PATH
@@ -40,7 +41,7 @@ jobs:
           host: ${{ secrets.SITEHOST_HOST }}
           username: ${{ secrets.SITEHOST_USER }}
           password: ${{ secrets.SITEHOST_PASSWORD }}
-          env: SITEHOST_API_KEY,SITEHOST_CLIENT_ID,SITEHOST_SERVER,SITEHOST_NAME,SITEHOST_CONTAINERS
+          envs: SITEHOST_API_KEY,SITEHOST_CLIENT_ID,SITEHOST_SERVER,SITEHOST_NAME,SITEHOST_CONTAINERS
           port: 22
           debug: true
           script: |
