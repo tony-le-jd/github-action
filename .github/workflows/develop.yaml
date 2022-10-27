@@ -20,7 +20,22 @@ jobs:
           password: ${{ secrets.SITEHOST_PASSWORD }}
           port: 22
           script: |
-            ls
+            echo "Test" 
+            which python
+  #          cd ${{ CONTAINER_PATH }}
+  #          git pull
+  #          yarn install
+  #          yarn run build
+      - name: API Call
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SITEHOST_HOST }}
+          username: ${{ secrets.SITEHOST_USER }}
+          password: ${{ secrets.SITEHOST_PASSWORD }}
+          port: 22
+          script: |
+            echo "python"
+          shell: python3
             
             
       
